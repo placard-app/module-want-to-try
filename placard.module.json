@@ -1,0 +1,24 @@
+{
+	"id": "places.want-to-try",
+	"name": "Want to Try",
+	"version": "0.1.1",
+	"description": "Keep a private checklist for each place.",
+	"permissions": ["places.read"],
+	"nav": [],
+	"source": "upload",
+	"sdkVersion": "0.2.0",
+	"requiredCapabilities": ["place-sections", "persistent-data"],
+	"cover": "web/assets/cover.webp",
+	"icon": "web/assets/icon.svg",
+	"serverEntry": "./server/index.js",
+	"webEntry": "./web/index.js",
+	"webRoutes": [],
+	"placeSections": [
+		{
+			"id": "want-to-try",
+			"label": "Want to Try",
+			"exportName": "WantToTrySection"
+		}
+	],
+	"mcpTools": []
+}

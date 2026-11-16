@@ -1,0 +1,26 @@
+{
+	"name": "@placard-official/places.want-to-try",
+	"version": "0.1.1",
+	"private": true,
+	"type": "module",
+	"engines": {
+		"node": ">=24"
+	},
+	"scripts": {
+		"build": "node scripts/build.mjs",
+		"typecheck": "tsc --noEmit",
+		"test": "node --experimental-strip-types --test tests/*.test.ts"
+	},
+	"devDependencies": {
+		"@types/node": "^26.6.6",
+		"@types/react": "^19.2.0",
+		"esbuild": "^0.28.2",
+		"fflate": "^0.8.3",
+		"react": "^19.2.0",
+		"typescript": "6.0.3"
+	},
+	"dependencies": {
+		"zod": "4.6.7"
+	},
+	"license": "AGPL-3.0-only"
+}

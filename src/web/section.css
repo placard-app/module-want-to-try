@@ -1,0 +1,152 @@
+.wtt {
+	border-top: 1px solid
+		var(--border, color-mix(in srgb, currentColor 18%, transparent));
+	padding-top: 28px;
+	display: grid;
+	gap: 16px;
+}
+.wtt * {
+	box-sizing: border-box;
+}
+.wtt h2,
+.wtt p {
+	margin: 0;
+}
+.wtt h2 {
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+.wtt small {
+	color: var(--muted-foreground, #6f6259);
+	font-size: 0.9rem;
+	display: block;
+	margin-top: 6px;
+}
+.wtt ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: grid;
+	gap: 4px;
+}
+.wtt li {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	min-width: 0;
+}
+.wtt li label {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	flex: 1;
+	min-width: 0;
+	min-height: 48px;
+	cursor: pointer;
+}
+.wtt li label span {
+	overflow-wrap: anywhere;
+}
+.wtt input[type="checkbox"] {
+	width: 20px;
+	height: 20px;
+	flex: none;
+	margin: 0;
+	accent-color: var(--primary, #8b3a2a);
+	cursor: pointer;
+}
+.wtt .done span {
+	text-decoration: line-through;
+	color: var(--muted-foreground, #6f6259);
+}
+.wtt button,
+.wtt input {
+	font: inherit;
+}
+.wtt button {
+	cursor: pointer;
+}
+.wtt button:disabled {
+	opacity: 0.5;
+	cursor: default;
+}
+.wtt .delete {
+	display: grid;
+	place-items: center;
+	flex: none;
+	width: 44px;
+	height: 44px;
+	padding: 0;
+	border: 0;
+	border-radius: 10px;
+	background: transparent;
+	color: var(--muted-foreground, #6f6259);
+}
+.wtt .delete:hover:not(:disabled) {
+	background: color-mix(in srgb, var(--primary, #8b3a2a) 9%, transparent);
+	color: var(--primary, #8b3a2a);
+}
+.wtt .delete svg {
+	width: 18px;
+	height: 18px;
+}
+.wtt form {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 8px;
+	border: 1px solid
+		var(--border, color-mix(in srgb, currentColor 14%, transparent));
+	border-radius: 14px;
+	background: color-mix(
+		in srgb,
+		var(--primary, #8b3a2a) 5%,
+		var(--card, #faf6ef)
+	);
+}
+.wtt input[type="text"] {
+	flex: 1;
+	min-width: 0;
+	min-height: 44px;
+	padding: 8px 10px;
+	border: 0;
+	background: transparent;
+	color: inherit;
+	outline: none;
+}
+.wtt input[type="text"]::placeholder {
+	color: var(--muted-foreground, #6f6259);
+	opacity: 1;
+}
+.wtt form:focus-within {
+	outline: 2px solid var(--ring, #c4a574);
+	outline-offset: 2px;
+}
+.wtt .add {
+	min-height: 40px;
+	padding: 8px 17px;
+	border: 0;
+	border-radius: 9px;
+	background: var(--primary, #8b3a2a);
+	color: var(--primary-foreground, #f2ebe0);
+	font-weight: 600;
+}
+.wtt .add:hover:not(:disabled) {
+	filter: brightness(0.9);
+}
+.wtt button:focus-visible,
+.wtt input[type="checkbox"]:focus-visible {
+	outline: 2px solid var(--ring, #c4a574);
+	outline-offset: 3px;
+}
+.wtt [role="alert"] {
+	color: var(--destructive, #9b2c1f);
+}
+@media (max-width: 400px) {
+	.wtt form {
+		gap: 4px;
+	}
+	.wtt .add {
+		padding-inline: 12px;
+	}
+}

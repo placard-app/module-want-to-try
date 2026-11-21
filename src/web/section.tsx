@@ -1,3 +1,4 @@
+import styles from "./section.css";
 import { useEffect, useState } from "react";
 
 function newId() {
@@ -68,9 +69,11 @@ export function WantToTrySection({ placeId }: { placeId: string }) {
 	}
 	return (
 		<section className="wtt" aria-label="Want to Try">
-			<style>{`.wtt{border-top:1px solid color-mix(in srgb,currentColor 18%,transparent);padding-top:24px;display:grid;gap:12px}.wtt h2{font-size:1.2rem;font-weight:600}.wtt p{margin:0}.wtt ul{list-style:none;padding:0;margin:0}.wtt li,.wtt form{display:flex;align-items:center;gap:10px}.wtt li{padding:6px 0}.wtt li label{display:flex;align-items:center;gap:8px;flex:1;min-width:0;overflow-wrap:anywhere}.wtt input[type=text]{flex:1;min-width:0}.wtt input[type=text],.wtt button{min-height:44px;padding:8px;border:1px solid color-mix(in srgb,currentColor 25%,transparent);border-radius:5px;background:transparent;color:inherit}.wtt button{cursor:pointer}.wtt input[type=checkbox]{width:20px;height:20px}.wtt .done{text-decoration:line-through;opacity:.65}.wtt small{opacity:.7}.wtt [role=alert]{color:#c65b45}`}</style>
-			<h2>Want to Try</h2>
-			<small>Only you can see your list.</small>
+			<style>{styles}</style>
+			<header>
+				<h2>Want to Try</h2>
+				<small>Only you can see your list.</small>
+			</header>
 			{error && <p role="alert">{error}</p>}
 			{!items && !error && <p role="status">Loading your list…</p>}
 			{items && (
@@ -95,11 +98,23 @@ export function WantToTrySection({ placeId }: { placeId: string }) {
 								</label>
 								<button
 									type="button"
+									className="delete"
+									title="Delete item"
 									aria-label={`Delete ${item.name}`}
 									disabled={busy}
 									onClick={() => void mutate({ action: "delete", id: item.id })}
 								>
-									Delete
+									<svg
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										strokeWidth="1.7"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										aria-hidden="true"
+									>
+										<path d="M4 7h16M10 11v6m4-6v6M5.5 7l1 12a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2l1-12M9 7V4h6v3" />
+									</svg>
 								</button>
 							</li>
 						))}
@@ -125,7 +140,11 @@ export function WantToTrySection({ placeId }: { placeId: string }) {
 							disabled={busy}
 							onChange={(event) => setName(event.target.value)}
 						/>
-						<button type="submit" disabled={busy || !name.trim()}>
+						<button
+							className="add"
+							type="submit"
+							disabled={busy || !name.trim()}
+						>
 							Add
 						</button>
 					</form>
